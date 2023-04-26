@@ -64,3 +64,20 @@ This will run terraform validate in all directories containing Terraform files. 
 bash terraform_validate.sh examples/us-west-1
 ```
 Both scripts assume that Terraform is installed and available on the system path. If Terraform is not installed, the scripts will exit with an error code.
+
+## install_python_requirements.sh
+
+### Script Description
+This bash script installs Python requirements using pip and pipreqs. The script first detects the package manager of the Linux system (either apt-get, yum, dnf, or pacman) and installs python3-pip if it is not already installed. It then upgrades pip and installs pipreqs. The script then finds all directories containing Python files (*.py) and installs the requirements for each directory using pip.
+
+If no directories containing Python files are found, the script will output an error message and exit with an error code.
+
+### Usage
+To use the script, simply run it in your terminal:
+
+```
+bash install_python_requirements.sh
+```
+This will install the Python requirements in all directories containing Python files.
+
+**Note**: This script assumes that the user has sudo access and will prompt for the sudo password if necessary.
