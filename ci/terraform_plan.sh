@@ -1,9 +1,19 @@
 #!/bin/bash
 
-set -euo pipefail
+set -e
 
-# Find all directories containing *.tf files and store them in a variable
-TF_DIRS=$(find . -type f -iname "*.tf" -exec dirname {} \; | sort -u)
+# Check if terraform is installed
+if ! command -v terraform &> /dev/null; then
+    echo "Error: terraform is not installed."
+    exit 1
+fi
+
+# Find directories containing *.tf files and store them in a variable
+if [ $# -eq 0 ]; then
+    TF_DIRS=$(find . -type f -iname "*.tf" -exec dirname {} \; | sort -u)
+else
+    TF_DIRS="$@"
+fi
 
 # Exit 1 if no directories are found
 if [ -z "$TF_DIRS" ]; then
@@ -16,33 +26,18 @@ echo "$TF_DIRS"
 
 # Iterate over the directories
 for dir in $TF_DIRS; do
-  echo "-----------------------------------------"
+  echo "-------------------------------------------"
   echo "Checking directory: $dir"
   
   # Change to the directory and run terraform commands
-  if ! cd "$dir"; then
-    echo "Error: Failed to check directory: $dir"
-    continue
+  if ! cd "$dir" || ! terraform init || ! terraform plan; then
+    echo "Error: Failed to plan directory: $dir"
+    exit 1
   fi
 
-  # Run terraform init
-  echo "Running terraform init..."
-  if ! terraform init; then
-    echo "Error: terraform init failed in directory: $dir"
-    cd - > /dev/null || exit 1
-    continue
-  fi
-
-  # Run terraform plan
-  echo "Running terraform plan..."
-  if ! terraform plan; then
-    echo "Error: terraform plan failed in directory: $dir"
-  else
-    echo "Terraform plan successful in directory: $dir"
-  fi
-
+  echo "Terraform planning successful in directory: $dir"
   cd - > /dev/null || exit 1
 done
 
-echo "-----------------------------------------"
+echo "-------------------------------------------"
 echo "Terraform planning complete."

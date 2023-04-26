@@ -20,6 +20,14 @@ chmod +x script_name.sh
 Then, run the script with the required arguments:
 
 ```bash
-./script_name.sh file_name pattern
+./cleanup_file.sh <file_name> <pattern>
 ```
-Replace script_name.sh with the name of the script file, file_name with the path to the file you want to process, and pattern with the pattern you want to match at the beginning of lines to be deleted.
+Replace ```file_name``` with the path to the file you want to process, and ```pattern``` with the pattern you want to match at the beginning of lines to be deleted.  
+
+Example:
+Removing all commented lines in a python script called ```example.py``` in the same dir.
+```bash
+./cleanup_file.sh example.py "#"
+```
+
+
