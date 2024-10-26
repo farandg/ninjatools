@@ -1,0 +1,1 @@
+alias gptcommit='GPT_RESPONSE=$(python3 /path/to/gpt_commentor.py) && git commit -am "$GPT_RESPONSE"'
