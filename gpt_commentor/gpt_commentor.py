@@ -24,7 +24,7 @@ def read_file_content(filename):
 # Run the git command and capture the output, handling errors
 def get_git_output():
     try:
-        return subprocess.check_output(["git", "show", "--pretty=format:"], text=True)
+        return subprocess.check_output(["git", "diff", "HEAD"], text=True)
     except subprocess.CalledProcessError as e:
         print("Error running git show command:", e)
         exit(1)
