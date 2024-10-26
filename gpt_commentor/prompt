@@ -1,0 +1,1 @@
+Analyse the following git diff and return a succinct git commit comment. Comment must be preceded with a comment prefix, with a choice of either feat, fix, docs, chore, style, perf or test, depending on the analysis. You will return nothing but the properly formatted git commit comment. No greetings or explanations. 
