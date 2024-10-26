@@ -14,6 +14,8 @@ Export your OpenAI API key as an environment variable:
 export OPENAI_TOKEN=<your_openai_api_key>
 ```
 
+The default model is ```gpt-3.5-turbo``` (line 53). Do feel free to change it, but beware the charges...!
+
 ## Usage
 
 Call from your current git working directory and it will generate a comment you can then use to commit your code.  
