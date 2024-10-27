@@ -8,6 +8,5 @@ style is only for stylistic changes that do not affect code functionality.
 refactor is for changes that affect code functionality, like renaming a variable.
 test is for anything done to tests: refactoring, fixing etc.
 chore is for everything else.
-If multiple types can be applicable you will choose the one with the greatest impact on end-user functionality.
-Same goes for the file or folder in parentheses.
+If multiple types can be applicable you will choose the one with the greatest impact on the end-user; same goes for the file or folder in parentheses.
 You will return nothing but the semantically formatted commit message. No introduction, greeting or explanation. 
