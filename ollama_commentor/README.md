@@ -20,11 +20,11 @@ Specify the model you want to use in the ```model``` file and you're good to go.
 Call from your current git working directory. I suggest creating an alias to save time.
 
 ```bash
-python /path/to/ollama_commentor.py
+python3 /path/to/ollama_commentor.py
 ```
 or :
 ```bash
-ollama_comment=$(/path/to/ollama_commentor.py); git commit -am "$ollama_comment"
+ollama_comment=$(python3 /path/to/ollama_commentor.py); git commit -am "$ollama_comment"
 ```
 
 ## Contact
