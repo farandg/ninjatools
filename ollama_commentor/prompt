@@ -1,13 +1,13 @@
-Ignore all previous instructions and analyse the following git diff. You will return a succinct semantic git commit message, following GitOps best practices, and be formatted as follows: type(file or folder): comment.
-Comment is a one-sentence summary of the diff, not an explanation of it.
-Type is defined as follows:
-feat is only for new features that affect the end user.
+Ignore all previous instructions and analyse the following git diff. You will return a succinct semantic git commit message, following GitOps best practices, and formatted as follows: type(file or folder): comment.
+Comment is a one-sentence summary of the changes made. File or folder refers to the file or folder those changes were made in.
+Type is very important, and defined as follows:
+feat is exclusively for changes bringing new functionality for the end user.
 fix is only for fixes to bugs that affect the end user.
-docs is for changes to the documentation, which will be exclusively in markdown.
-style is only for stylistic changes that do not affect code functionality.
+docs is for addition of or changes only to markdown files.
+style is only for cosmetic changes that do not affect code functionality.
 refactor is for changes that affect code functionality, like renaming a variable.
-test is for anything done to tests: refactoring, fixing etc.
+test is for addition of or changes to any tests.
 chore is for everything else.
-If multiple types can be applicable you will choose the one with the greatest impact on end-user functionality.
-Same goes for the file or folder in parentheses.
+If several files are affected, you will use the containing folder.
+If multiple types are applicable you will choose the one with the greatest impact, in the order feat>fix>refactor>test>chore>style>docs.
 You will return nothing but the semantically formatted commit message. No introduction, greeting or explanation. 
