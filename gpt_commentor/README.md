@@ -27,7 +27,24 @@ python3 /path/to/gpt_commentor.py
 More advanced users might choose to create an alias:
 
 ```bash
-alias gptcommit='GPT_RESPONSE=$(python3 /path/to/gpt_commentor.py) && git commit -am "$GPT_RESPONSE"'
+alias gptcommit='python3 /path/to/gpt_commentor.py'
+```
+
+gpt_commentor will send the generated git diff as well as the prompt and context to the chosen model and return a comment suggestion. You can (a)ccept, (r)etry, or (q)uit.  
+- accepting will send ```git commit -am``` with the generated comment
+- retrying will generate a new comment using the same information
+- quitting will abort the script
+
+```bash 
+g$ gptcommit
+Suggested commit message:
+chore(gpt_commentor/CHANGELOG.md): added user decision loop.
+
+Do you want to (a)ccept, (r)etry, or (q)uit? a
+[gpt_commentor c8dd832] feat(ollama_commentor): added user decision loop.
+ 2 files changed, 11 insertions(+)
+ create mode 100644 gpt_commentor/CHANGELOG.md
+Commit has been made successfully.
 ```
 
 ## Known bugs and limits
