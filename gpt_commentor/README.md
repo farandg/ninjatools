@@ -30,6 +30,16 @@ More advanced users might choose to create an alias:
 alias gptcommit='GPT_RESPONSE=$(python3 /path/to/gpt_commentor.py) && git commit -am "$GPT_RESPONSE"'
 ```
 
+## Known bugs and limits
+
+If the diff exceeds the token limit of the model used it will often be wrong.  
+If you add new files and do not ```git add``` before using the script it will hallucinate a comment:
+```bash
+$ gptcommit
+Suggested commit message:
+fix(src/index.js): Fix issue with missing semicolon.
+```
+
 ## Contact
 
 For any questions or issues, please reach out to the project maintainer, open an issue or a PR.  
