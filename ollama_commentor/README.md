@@ -22,9 +22,31 @@ Call from your current git working directory. I suggest creating an alias to sav
 ```bash
 python3 /path/to/ollama_commentor.py
 ```
-or :
+
+ollama_commentor will send the generated git diff as well as the prompt and context to the chosen model and return a comment suggestion. You can (a)ccept, (r)etry, or (q)uit.  
+- accepting will send ```git commit -am``` with the generated comment
+- retrying will generate a new comment using the same information
+- quitting will abort the script
+
+```bash 
+g$ ollamacommit
+Suggested commit message:
+chore(gpt_commentor/CHANGELOG.md): added user decision loop.
+
+Do you want to (a)ccept, (r)etry, or (q)uit? a
+[gpt_commentor c8dd832] feat(ollama_commentor): added user decision loop.
+ 2 files changed, 11 insertions(+)
+ create mode 100644 gpt_commentor/CHANGELOG.md
+Commit has been made successfully.
+```
+## Known bugs and limits
+
+If the diff exceeds the token limit of the model used it will often be wrong.  
+If you add new files and do not ```git add``` before using the script it will hallucinate a comment:
 ```bash
-ollama_comment=$(python3 /path/to/ollama_commentor.py); git commit -am "$ollama_comment"
+$ gptcommit
+Suggested commit message:
+fix(src/index.js): Fix issue with missing semicolon.
 ```
 
 ## Contact
