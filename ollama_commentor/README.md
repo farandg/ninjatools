@@ -6,8 +6,8 @@ The benefits of this approach include being able to pass sensitive information w
 ## Pre-requisites
 
 To use this script you will need the following:
-- ollama installed on your local machine (full guide (here)[https://ollama.com/download])
-- at least one model installed with ollama (see the README (here)[https://github.com/ollama/ollama])
+- ollama installed on your local machine (full guide [here](https://ollama.com/download))
+- at least one model installed with ollama (see the README [here](https://github.com/ollama/ollama))
 - the ollama Python library (```pip install ollama```)
 - optionally but preferrably: a good cpu/gpu with good cooling
 
