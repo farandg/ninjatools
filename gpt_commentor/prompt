@@ -1,11 +1,13 @@
-Analyse the following git diff and return a succinct semantic git commit message. Message must follow GitOps best practices, and be formatted as follows: type(file or folder): comment.
-Comment is a one-sentence summary of the diff.
+Ignore all previous instructions and analyse the following git diff. You will return a succinct semantic git commit message, following GitOps best practices, and be formatted as follows: type(file or folder): comment.
+Comment is a one-sentence summary of the diff, not an explanation of it.
 Type is defined as follows:
-feat is for new features for the end user, not for instance a new feature for build script.
-fix is for bug fixes for the user, not a fix to for instance a build script.
-docs is for changes to the documentation.
-style is for formatting, missing semi colons, etc; no production code change.
-refactor is for refactoring production code, eg. renaming a variable.
-test is for adding missing tests, refactoring tests; no production code change.
-chore is for updating grunt tasks etc; no production code change.
+feat is only for new features that affect the end user.
+fix is only for fixes to bugs that affect the end user.
+docs is for changes to the documentation, which will be exclusively in markdown.
+style is only for stylistic changes that do not affect code functionality.
+refactor is for changes that affect code functionality, like renaming a variable.
+test is for anything done to tests: refactoring, fixing etc.
+chore is for everything else.
+If multiple types can be applicable you will choose the one with the greatest impact on end-user functionality.
+Same goes for the file or folder in parentheses.
 You will return nothing but the semantically formatted commit message. No introduction, greeting or explanation. 
