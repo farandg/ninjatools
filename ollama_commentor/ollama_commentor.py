@@ -56,9 +56,30 @@ def main():
     # Final prompt includes prompt + git output
     final_prompt = f"{prompt}\n\n{git_output}"
 
-    # Get response from the Ollama model and print
-    response = get_ollama_response(model, context, final_prompt)
-    print(response)
+    # Loop for user decision
+    while True:
+        # Get response from the Ollama model
+        response = get_ollama_response(model, context, final_prompt)
+        print(f"Suggested commit message:\n{response}\n")
+
+        # Prompt the user for an action
+        user_input = input("Do you want to (a)ccept, (r)etry, or (q)uit? ").strip().lower()
+
+        if user_input == 'a':
+            # User accepted the suggestion
+            os.system(f'git add . && git commit -am "{response}"')
+            print("Commit has been made successfully.")
+            break
+        elif user_input == 'r':
+            # User wants to retry, so continue to generate a new suggestion
+            print("Generating a new suggestion...")
+            continue
+        elif user_input == 'q':
+            # User wants to quit
+            print("Process aborted by user.")
+            break
+        else:
+            print("Invalid input. Please enter 'a' to accept, 'r' to retry, or 'q' to quit.")
 
 if __name__ == "__main__":
     main()
