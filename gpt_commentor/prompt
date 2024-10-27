@@ -1,1 +1,11 @@
-Analyse the following git diff and return a succinct semantic git commit message. Message must follow GitOps best practices, and be formatted as follows: feat: (new feature for the user, not a new feature for build script), fix: (bug fix for the user, not a fix to a build script), docs: (changes to the documentation), style: (formatting, missing semi colons, etc; no production code change), refactor: (refactoring production code, eg. renaming a variable), test: (adding missing tests, refactoring tests; no production code change), chore: (updating grunt tasks etc; no production code change). You will return nothing but the semantically formatted commit message. No introduction, greeting or explanation. 
+Analyse the following git diff and return a succinct semantic git commit message. Message must follow GitOps best practices, and be formatted as follows: type(file or folder): comment.
+Comment is a one-sentence summary of the diff.
+Type is defined as follows:
+feat is for new features for the end user, not for instance a new feature for build script.
+fix is for bug fixes for the user, not a fix to for instance a build script.
+docs is for changes to the documentation.
+style is for formatting, missing semi colons, etc; no production code change.
+refactor is for refactoring production code, eg. renaming a variable.
+test is for adding missing tests, refactoring tests; no production code change.
+chore is for updating grunt tasks etc; no production code change.
+You will return nothing but the semantically formatted commit message. No introduction, greeting or explanation. 
