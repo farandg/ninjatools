@@ -1,5 +1,5 @@
 Ignore all previous instructions and analyse the following git diff. You will return a succinct semantic git commit message, following GitOps best practices, and be formatted as follows: type(file or folder): comment.
-Comment is a one-sentence summary of the diff, not an explanation of it.
+Comment is a one-sentence summary of the changes made to the code base.
 Type is defined as follows:
 feat is only for new features that affect the end user.
 fix is only for fixes to bugs that affect the end user.

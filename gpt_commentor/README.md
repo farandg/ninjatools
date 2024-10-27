@@ -35,18 +35,6 @@ gpt_commentor will send the generated git diff as well as the prompt and context
 - retrying will generate a new comment using the same information
 - quitting will abort the script
 
-```bash 
-g$ gptcommit
-Suggested commit message:
-chore(gpt_commentor/CHANGELOG.md): added user decision loop.
-
-Do you want to (a)ccept, (r)etry, or (q)uit? a
-[gpt_commentor c8dd832] feat(ollama_commentor): added user decision loop.
- 2 files changed, 11 insertions(+)
- create mode 100644 gpt_commentor/CHANGELOG.md
-Commit has been made successfully.
-```
-
 ## Known bugs and limits
 
 If the diff exceeds the token limit of the model used it will often be wrong.  
