@@ -1,13 +1,13 @@
-import os
+from pathlib import Path
 import subprocess
 import ollama
 
 # Load content from a file in the script's directory
 def read_file_content(filename):
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(script_dir, filename)
+    script_dir = Path(__file__).resolve().parent
+    file_path = script_dir / filename
     try:
-        with open(file_path, 'r') as file:
+        with file_path.open('r') as file:
             return file.read().strip()
     except FileNotFoundError:
         raise FileNotFoundError(f"File '{filename}' not found in script directory '{script_dir}'.")
@@ -67,7 +67,8 @@ def main():
 
         if user_input == 'a':
             # User accepted the suggestion
-            os.system(f'git add . && git commit -am "{response}"')
+            subprocess.run(['git', 'add', '.'])
+            subprocess.run(['git', 'commit', '-am', response])
             print("Commit has been made successfully.")
             break
         elif user_input == 'r':

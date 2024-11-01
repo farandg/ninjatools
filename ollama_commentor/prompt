@@ -3,7 +3,7 @@ Comment is a one-sentence summary of the changes made. File or folder refers to 
 Type is very important, and defined as follows:
 feat is exclusively for changes bringing new functionality for the end user.
 fix is only for fixes to bugs that affect the end user.
-docs is for addingor changing only markdown files.
+docs is for adding or changing only markdown files.
 style is only for cosmetic changes that do not affect code functionality.
 refactor is for changes that affect code functionality, like renaming a variable.
 test is only for adding or changing tests.
