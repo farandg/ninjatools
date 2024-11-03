@@ -1,5 +1,6 @@
-from pathlib import Path
+import os
 import subprocess
+from pathlib import Path
 from openai import OpenAI, OpenAIError
 
 # Fetch the API key from environment variable
